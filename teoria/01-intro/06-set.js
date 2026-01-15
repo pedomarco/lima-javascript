@@ -5,7 +5,7 @@ let miSet = new Set()
 console.log(miSet);
 
 miSet = new Set(["hola", "pepito", 4, true])
-miArray = new Array("hola", "pepito", 4, true)
+let miArray = new Array("hola", "pepito", 4, true)
 
 console.log(miSet);
 console.log(miArray);
