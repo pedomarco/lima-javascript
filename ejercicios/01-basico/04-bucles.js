@@ -69,7 +69,7 @@ for (let i = 1; i <= 10; i++) {
     console.log(`${i} x 5 = ${i*5}`);
 }
 
-// 8. Usa un bucle para invertir una cadena de texto "012"
+// 8. Usa un bucle para invertir una cadena de texto
 const cadena = "Dar la vuelta a este texto"
 let invertida = ""
 
