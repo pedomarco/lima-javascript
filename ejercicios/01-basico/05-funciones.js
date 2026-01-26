@@ -192,5 +192,70 @@ console.log(elevarCuadrado2([1,2,3,4,5,6,7]));
 
 // 9. Crea una función que reciba una cadena de texto y devuelva la misma cadena con las palabras en orden inverso
 
+// for
+function invertirPalabras(texto) {
+    let listaPalabras = texto.split(" ")
+    let resultado = ""
 
-// 10. Crea una función que calcule el factorial de un número dado
+    for (let i = listaPalabras.length - 1; i >= 0; i--) {
+        resultado += listaPalabras[i] + " "
+    }
+    
+    return resultado.trim()
+}
+console.log(invertirPalabras("hola que tal"));
+
+// for of
+function invertirPalabras2(texto) {
+    let listaPalabras = texto.split(" ")
+    let resultado = []
+    
+    for (let palabra of listaPalabras) {
+        resultado.unshift(palabra)
+    }
+       
+    return resultado.join(" ")
+}
+console.log(invertirPalabras2("hola que tal"));
+
+// for of
+function invertirPalabras3(texto) {
+    let listaPalabras = texto.split(" ")
+    let resultado = []
+    
+    listaPalabras.forEach( palabra => resultado.unshift(palabra))
+       
+    return resultado.join(" ")
+}
+console.log(invertirPalabras3("hola que tal"));
+
+// funcional
+function invertirPalabras4(texto) {
+    return texto      // "hola que tal"
+        .split(" ")  // ["hola", "que", "tal"]  
+        .reverse()  // ["tal", "que", "hola"]
+        .join(" ") // "tal que hola"
+}
+console.log(invertirPalabras4("hola que tal"));
+
+
+// 10. Crea una función que calcule el factorial de un número dado (5! = 5 * 4 * 3 * 2)
+function factorialIterativo(numero) {
+    let resultado = 1
+    for (let i = 1; i <= numero; i++) {
+        resultado *= i
+    }    
+    return resultado
+}
+console.log(factorialIterativo(5));
+
+// Forma recursiva:
+// n! = n * (n-1)! [5! = 5 * 4!, ...]
+
+function factorial(numero) {
+    // Caso base
+    if (numero === 0) return 1
+    // Caso recursivo
+    return numero * factorial(numero - 1)
+}
+console.log(factorial(5));
