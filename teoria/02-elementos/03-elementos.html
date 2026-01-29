@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .estilo {
+            font-variant: small-caps;
+        }
+
+        .principal {
+            text-decoration: underline;
+        }
+
+        .otra {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="header" class="titulo principal">Cabecera de la página</h1>
+
+    <!-- Ejemplo 1 -->
+    <section class="ficha">
+        <h2>Ficha</h2>
+        <p>Parrafo 1</p>
+        <p>Parrafo 2</p>
+        <button>Boton</button>
+    </section>
+
+    <script>
+        /* children: hijos directos de un elemento */
+        let ficha = document.querySelector(".ficha")
+        let elementosFicha = ficha.children
+        console.log(elementosFicha);
+        
+        /* parentElement: elemento padre */
+        let parrafo = elementosFicha[1]
+        console.log(parrafo.parentElement);
+
+        /* classList: permite trabajar con las clases de un elemento */
+        let cabecera = document.getElementById("header")
+        let listaClasesCabecera = cabecera.classList
+        console.log(listaClasesCabecera);
+
+        listaClasesCabecera.add("estilo") // añadir clase
+        listaClasesCabecera.remove("principal") // eliminar clase
+        listaClasesCabecera.toggle("otra") // añadir o quitar segun existe
+
+        /* className: contenido completo del atributo class */
+        console.log(cabecera.className);
+              
+        /* style: permite modificar estilos en linea */
+        for (let hijo of ficha.children) {
+            hijo.style.border = "2px solid red"
+        }
+    </script>
+
+    <!-- Ejemplo 2: propiedad value -->
+    <form>
+        <label>
+            Nombre
+            <input id="nombre" type="text" value="Pepito">
+        </label>
+    </form>
+    <script>
+        let nombreInput = document.getElementById("nombre")
+        let nombre = nombreInput.value
+        console.log(`El nombre es ${nombre}`);
+    </script>
+
+    <!-- Ejemplo 3: propiedad dataset -->
+    <article
+        id="coches-electricos"
+        data-columns="3"
+        data-index-number="1234"
+        data-parent="coches">
+        Articulo de un coche electrico
+    </article>
+
+    <script>
+        let articulo = document.getElementById("coches-electricos")
+
+        console.log(articulo.dataset.columns);
+        console.log(articulo.dataset.parent);
+        console.log(articulo.dataset.indexNumber);
+        
+    </script>
+        
+</body>
+</html>
