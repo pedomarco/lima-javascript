@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h2>JavaScript HTML DOM</h2>
+
+    <p id="intro">Este es el párrafo intro</p>
+    <p class="texto">Otro párrafo</p>
+    <p class="texto">Otro párrafo con <b>negrita</b></p>
+    <p id="demo">Este es el párrafo demo</p>
+
+    <script>
+        /* Seleccionar por ID */
+        let elementoIDDemo = document.getElementById("demo")
+        elementoIDDemo.innerHTML = "Cambiando parrafo demo seleccionado por ID"
+
+        /* Seleccionar por etiqueta */
+        let elementosP = document.getElementsByTagName("p")
+        console.log(typeof elementosP);
+        console.log(elementosP);
+        elementosP[0].innerHTML = "Cambiando el primer parrafo seleccionado por etiqueta"
+
+        /* Seleccionar por clase*/
+        let elementosClaseTexto = document.getElementsByClassName("texto")
+        elementosClaseTexto[0].innerHTML = "Cambiando el primer parrafo clase texto seleccionando por clase"
+
+        /* Usar selectores CSS */
+        // querySelector: devolver el PRIMER elemento
+        let primerParrafo = document.querySelector("p")
+        primerParrafo.innerHTML = "primerParrafo"
+
+        let parrafoDemo = document.querySelector("#demo")
+        parrafoDemo.innerHTML = "parrafoDemo"
+        
+        let parrafoTexto = document.querySelector(".texto")
+        parrafoTexto.innerHTML = "parrafoTexto" 
+
+        let negrita = document.querySelector("p b")
+        negrita.innerHTML = "negrita desde JS"
+
+        //querySelectorAll: devolver TODOS los que coinciden
+        let todosParrafosTexto = document.querySelectorAll(".texto")
+        for (let parrafo of todosParrafosTexto){
+            console.log(parrafo.innerHTML);    
+        }
+    </script>
+    
+</body>
+</html>

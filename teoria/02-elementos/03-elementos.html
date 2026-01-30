@@ -3,50 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+        .estilo {
+            font-variant: small-caps;
+        }
+
+        .principal {
+            text-decoration: underline;
+        }
+
+        .otra {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <h2>JavaScript HTML DOM</h2>
+    <h1 id="header" class="titulo principal">Cabecera de la página</h1>
 
-    <p id="intro">Este es el párrafo intro</p>
-    <p class="texto">Otro párrafo</p>
-    <p class="texto">Otro párrafo con <b>negrita</b></p>
-    <p id="demo">Este es el párrafo demo</p>
+    <!-- Ejemplo 1 -->
+     <section class="ficha">
+        <h2>Ficha</h2>
+        <p>Parrafo 1</p>
+        <p>Parrafo 2</p>
+        <button>Boton</button>
+     </section>
 
-    <script>
-        /* Seleccionar por ID */
-        let elementoIDDemo = document.getElementById("demo")
-        elementoIDDemo.innerHTML = "Cambiando parrafo demo seleccionado por ID"
+     <script>
+        /* children: hijos directos de un elemento */
+        let ficha = document.querySelector(".ficha")
+        let elementosFicha = ficha.children
+        console.log(elementosFicha);
 
-        /* Seleccionar por etiqueta */
-        let elementosP = document.getElementsByTagName("p")
-        console.log(typeof elementosP);
-        console.log(elementosP);
-        elementosP[0].innerHTML = "Cambiando el primer parrafo seleccionado por etiqueta"
+        /* parentElement: elemento padre */
+        let parrafo = elementosFicha[1]
+        console.log(parrafo.parentElement);
 
-        /* Seleccionar por clase*/
-        let elementosClaseTexto = document.getElementsByClassName("texto")
-        elementosClaseTexto[0].innerHTML = "Cambiando el primer parrafo clase texto seleccionando por clase"
+        /* classList: permite trabajar con las clases de un elemento */
+        let cabecera = document.getElementById("header")
+        let listaClasesCabecera = cabecera.classList
+        console.log(listaClasesCabecera);
 
-        /* Usar selectores CSS */
-        // querySelector: devolver el PRIMER elemento
-        let primerParrafo = document.querySelector("p")
-        primerParrafo.innerHTML = "primerParrafo"
+        listaClasesCabecera.add("estilo") // añadir clase
+        listaClasesCabecera.remove("principal") // eliminar clase
+        listaClasesCabecera.toggle("otra") // añadir o quitar segun existe
 
-        let parrafoDemo = document.querySelector("#demo")
-        parrafoDemo.innerHTML = "parrafoDemo"
-        
-        let parrafoTexto = document.querySelector(".texto")
-        parrafoTexto.innerHTML = "parrafoTexto" 
+        /* className: contenido completo del atributo class */
+        console.log(cabecera.className);
 
-        let negrita = document.querySelector("p b")
-        negrita.innerHTML = "negrita desde JS"
+        /* style: permite modificar estilos en linea */
+        for (let hijo of ficha.children) {
+            hijo.style.border = "2px solid red"
+        }                  
+     </script>
 
-        //querySelectorAll: devolver TODOS los que coinciden
-        let todosParrafosTexto = document.querySelectorAll(".texto")
-        for (let parrafo of todosParrafosTexto){
-            console.log(parrafo.innerHTML);    
-        }
-    </script>
+     <!-- Ejemplo 2: propiedad value en formularios -->
+      <form action="">
+        <label for="">
+            Nombre
+            <input id="nombre" type="text" value="Pepito">
+        </label>
+      </form>
+      <script>
+        let nombreInput = document.getElementById("nombre")
+        let nombre = nombreInput.value
+        console.log(`El nombre es: ${nombre}`);
+      </script>
+
+      <!-- Ejemplo 3: propiedad dataset -->
+       <article
+            id="coches-electricos"
+            data-columns="3"
+            data-parent ="coches">
+        Articulo de un coche electrico
+       </article>
+
+       <script>
+        let articulo = document.getElementById("coches-electricos")
+
+        console.log(articulo.dataset.columns);
+        console.log(articulo.dataset.parent); 
+       </script>
+
+
     
 </body>
 </html>
