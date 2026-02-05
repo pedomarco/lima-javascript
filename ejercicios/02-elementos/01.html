@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01</title>
+    <style>
+        /* Apartado a */
+        .resaltado {
+            color: red;
+            background-color: rgb(240, 197, 197);
+            border: 2px solid red;
+            padding: 10px;
+            font-size: 1.2em;
+            /* border-radius: 10px; */
+        }
+
+        .resaltado strong {
+            color: black;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <p id="mensaje">Este es un texto de prueba con algunas <strong>palabras importantes</strong> que deben resaltarse al aplicar el estilo.</p>
+
+    <script>
+        /* Apartado b */
+        let parrafo = document.getElementById("mensaje")
+        parrafo.classList.add("resaltado")
+        console.log(parrafo.classList)
+
+        /* Apartado c */
+        parrafo.style.borderRadius = "10px"
+    </script>
+    
+</body>
+</html>
