@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02</title>
+    <style>
+        fieldset {
+            width: 250px;
+            padding: 10px;
+            border: 2px solid black;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 5px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+        <form id="form1">
+            <fieldset id="grupo-datos">
+                <legend>Datos personales</legend>
+
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" value="Pepito">
+
+                <label for="apellidos">Apellidos</label>
+                <input type="text" name="apellidos" id="apellidos" value="Perez">
+            </fieldset>
+        </form>
+
+        <script>
+            /* Apartado a */
+            let formulario = document.getElementById("form1")
+
+            let varNombre = formulario.nombre.value
+            let varApellidos = formulario.apellidos.value
+            /* 
+            let varNombre = formulario.elements["nombre"].value
+            let varApellidos = formulario.elements["apellidos"].value   
+            */
+
+            console.log(varNombre);
+            console.log(varApellidos);
+
+            /* Apartado b */
+            let grupoDatos = document.getElementById("grupo-datos")
+            grupoDatos.style.backgroundColor = "lightblue"
+
+            /* Apartado c*/
+            console.log(`Nombre completo: ${varNombre} ${varApellidos}`);
+        </script>
+</body>
+</html>
