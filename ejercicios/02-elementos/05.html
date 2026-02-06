@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05</title>
+    <style>
+        /* Apartado a */
+        .especial {
+            font-style: italic;
+        }
+
+        .especial.marcado {
+            background-color: #d2efd2;
+            border-left: 4px solid green;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <h2>Artículo</h2>
+        <p class="especial marcado">Información importante</p>
+        <p>Texto normal</p>
+    </article>
+
+    <article>
+        <h2>Artículo</h2>
+        <p>Texto normal</p>
+        <p class="especial">Información importante</p>
+    </article>
+
+    <article>
+        <h2>Artículo</h2>
+        <p class="especial">Información importante</p>
+        <p>Texto normal</p>
+    </article>
+
+    <script>
+        /* Apartado b */
+        const parrafosEspeciales = document.querySelectorAll(".especial")
+
+        parrafosEspeciales.forEach(parrafo => {
+            parrafo.classList.add("marcado")
+            console.log(parrafo.classList)
+        })
+
+        /* Apartado c */
+        const primerParrafoEspecial = parrafosEspeciales[0]
+        primerParrafoEspecial.classList.remove("marcado")
+
+        
+    </script>
+    
+</body>
+</html>
