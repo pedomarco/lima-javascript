@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04</title>
+    <style>
+        /* Apartado a */
+        .especial {
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .especial.seleccionado {
+            background-color: khaki;
+            border: 2px dashed black;
+            padding: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <article>
+        <h2>Artículo 1</h2>
+        <p>Párrafo normal</p>
+        <p class="especial">Párrafo especial</p>
+    </article>
+
+    <article>
+        <h2>Artículo 2</h2>
+        <p>Párrafo normal</p>
+        <p>Párrafo normal</p>
+        <p class="especial">Párrafo especial</p>
+    </article>
+
+    <script>
+        /* Apartado b */
+        /* 
+        const parrafoEspecial = document.querySelector(".especial")
+        parrafoEspecial.classList.add("seleccionado")
+        */
+
+        const parrafosEspeciales = document.querySelectorAll(".especial")
+        console.log(parrafosEspeciales);
+        
+        /*         
+        for (parrafo of parrafosEspeciales) {
+            parrafo.classList.add("seleccionado")
+            parrafo.innerHTML += " seleccionado"
+        }
+        */
+
+        parrafosEspeciales.forEach( parrafo => {
+            parrafo.classList.add("seleccionado")
+            parrafo.innerHTML += " seleccionado"
+        })
+
+
+    </script>
+    
+</body>
+</html>
