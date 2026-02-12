@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07</title>
+    <style>
+        section {
+            border: 2px solid black;
+            margin: 10px;
+            padding: 5px;
+        }
+
+        section[data-destacado="true"] {
+            border-color: blue;
+        }
+        .resumen {
+            border: 2px solid black;
+            background-color: lightblue;
+            padding: 5px;
+        }
+
+        .resumen strong {
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <section data-destacado="true">
+        <h2>Sección 1</h2>
+        <p>Un párrafo</p>        
+        <p>Otro párrafo</p>
+    </section>
+    <section>
+        <h2>Sección 2</h2>
+        <p>Un párrafo</p>        
+        <p>Otro párrafo</p>
+    </section>
+    <section data-destacado="true">
+        <h2>Sección 3</h2>
+        <p>Un párrafo</p>        
+        <p>Otro párrafo</p>
+        <p>Otro párrafo</p>
+    </section>
+    <section data-destacado="true">
+        <h2>Sección 4</h2>
+        <p>Un párrafo</p>        
+        <p>Otro párrafo</p>
+        <p>Otro párrafo</p>
+        <p>Otro párrafo</p>
+    </section>
+
+    <!-- Contenedor vacio para generar contenido dinamicamente -->
+    <div id="resultado"></div>
+
+    <script>
+        const secciones = document.querySelectorAll("section")
+
+        let totalSeccionesDestacadas = 0
+        let resumenTexto = ""
+
+        secciones.forEach(seccion => {
+            
+            /* Comprobar si la seccion es destacada */
+            if(seccion.dataset.destacado === "true") {
+                
+                /* Contar las secciones */
+                totalSeccionesDestacadas ++
+
+                /* Obtener el titulo */
+                const titulo = seccion.querySelector("h2").textContent
+
+                /* Contar los parrafos*/
+                const numeroParrafos = seccion.querySelectorAll("p").length
+                console.log(numeroParrafos);
+
+                /* Construir el resumen */
+                resumenTexto += `
+                    <p>
+                        <strong>${titulo}</strong>: ${numeroParrafos} párrafos
+                    </p>
+                `
+            }
+        })
+
+        /* Insertar contenido en el contenedor resumen */
+        const resultado = document.getElementById("resultado")
+        resultado.innerHTML = `
+            <h3>Resumen de secciones destacadas</h3>
+            <p>Total de secciones destacadas: ${totalSeccionesDestacadas}</p>
+            ${resumenTexto}
+        `
+        resultado.classList.add("resumen")
+        resultado.style.margin = "10px"
+    </script>  
+</body>
+</html>
