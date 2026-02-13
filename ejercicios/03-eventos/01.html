@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01</title>
+    <style>
+        .caja {
+            background-color: lightblue;
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+            margin: auto;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: all 0.5s ease;
+        }
+
+        .activa {
+            background-color: lightgreen;
+            transform: scale(1.05) rotate(2deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="especial" class="caja">
+        Fai click aquí
+    </div>
+    <script>
+        const caja = document.getElementById("especial")
+
+        caja.addEventListener("click", (event) => {
+            /* Mostrar texto en consola */
+            console.log("click");
+
+            /* Mostrar el evento en consola */
+            console.log(event);
+
+            /* Cambiar el aspecto visual */
+            caja.classList.toggle("activa")            
+            
+        } )
+    </script>
+
+</body>
+</html>
