@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+</head>
+<body>
+    <!-- Eventos usando atributos de HTML (no recomendado)-->
+     <section>
+        <h2>Eventos usando atributos HTML</h2>
+        <button onClick="eventoHTML()">Click</button>
+        <p id="salida-atributo"></p>
+     </section>
+     <script>
+        const salidaAtributo = document.getElementById("salida-atributo")
+        function eventoHTML() {
+            salidaAtributo.textContent = "Evento usando atributo"
+        }
+     </script>
+    
+     <!-- Eventos usando listener -->
+      <section>
+        <h2>Eventos usando listener</h2>
+        <button id="btn-listener">Click</button>
+        <p id="salida-listener"></p>
+     </section>
+     <script>
+        const salidaListener = document.getElementById("salida-listener")
+        const btnListener = document.getElementById("btn-listener")
+
+        /* Definiendo una funcion manejador */
+        function eventoListener() {
+            salidaListener.textContent = "Evento usando listener"
+        }
+        /* btnListener.addEventListener("click", eventoListener) */
+        
+        /* Usando lambda */
+        btnListener.addEventListener("click", () => {
+            salidaListener.textContent = "Evento usando listener y lambda"
+        })
+     </script>
+
+     <!-- Eventos usando propiedades -->
+      <section>
+        <h2>Eventos usando propiedades</h2>
+        <button id="btn-propiedades">Click</button>
+        <p id="salida-propiedades"></p>
+     </section>
+     <script>
+        const salidaPropiedades = document.getElementById("salida-propiedades")
+        const btnPropiedades = document.getElementById("btn-propiedades")
+        
+        btnPropiedades.onclick = () => {
+            salidaPropiedades.textContent  = "Evento usando propiedades"
+        }
+     </script>
+
+     <!-- Parametro event -->
+      <section>
+        <h2>Parámetro event</h2>
+        <input type="text" name="textBox" id="textBox" placeholder="Escribe algo">
+        <p id="output"></p>
+     </section>
+     <script>
+        const textBox = document.getElementById("textBox")
+        const output = document.getElementById("output")
+
+        textBox.addEventListener("keydown", (event) => {
+            console.log(event);
+            output.textContent = `Tecla pulsada: ${event.key}`
+        })
+        
+     </script>
+
+</body>
+</html>
