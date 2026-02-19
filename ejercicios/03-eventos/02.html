@@ -44,15 +44,15 @@
         const todosParrafos = document.querySelectorAll("p")
 
         todosParrafos.forEach((p) => {
-            p.addEventListener("mouseenter", () => {
-                /* const articulo = p.parentElement */
-                const articulo = p.closest("article")
 
+            /* const articulo = p.parentElement */
+            const articulo = p.closest("article")
+            
+            p.addEventListener("mouseenter", () => {
                 articulo.classList.add("seleccionado")
             })
 
             p.addEventListener("mouseleave", () => {
-                const articulo = p.closest("article")
                 articulo.classList.remove("seleccionado")
             })
         })
