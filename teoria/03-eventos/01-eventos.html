@@ -70,8 +70,23 @@
             console.log(event);
             output.textContent = `Tecla pulsada: ${event.key}`
         })
-        
      </script>
+
+     <!-- Crear nodos -->
+      <section id="nodos">
+        <h2>Crear nodos</h2>
+      </section>
+      <script>
+        /* Crear un parrafo y darle contenido */
+        const parrafoCreado = document.createElement("p")
+        parrafoCreado.textContent = "Hola mundo"
+
+        /* Añadirlo al DOM */
+        const seccionNodos = document.getElementById("nodos")
+        seccionNodos.appendChild(parrafoCreado)
+
+
+      </script>
 
 </body>
 </html>
