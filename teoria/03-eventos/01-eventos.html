@@ -75,17 +75,24 @@
      <!-- Crear nodos -->
       <section id="nodos">
         <h2>Crear nodos</h2>
+        <button id="btn-nodos">Click</button>
       </section>
       <script>
-        /* Crear un parrafo y darle contenido */
-        const parrafoCreado = document.createElement("p")
-        parrafoCreado.textContent = "Hola mundo"
-
-        /* Añadirlo al DOM */
+        
+        const botonNodos = document.getElementById("btn-nodos")
         const seccionNodos = document.getElementById("nodos")
-        seccionNodos.appendChild(parrafoCreado)
 
+        botonNodos.addEventListener("click", () => {
+        
+            /* Crear un parrafo y darle contenido */
+            const parrafoCreado = document.createElement("p")
+            parrafoCreado.textContent = "Nodo creado dinamicamente"
 
+            /* Añadirlo al DOM */
+            seccionNodos.appendChild(parrafoCreado)
+
+        })
+        
       </script>
 
 </body>
