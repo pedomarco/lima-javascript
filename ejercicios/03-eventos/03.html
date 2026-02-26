@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03</title>
+    <style>
+        input {
+            margin: 10px;
+            display: block;
+        }
+
+        button {
+            margin: 10px;
+            display: block;
+        }
+
+        .error {
+            background-color: #ee6767;
+        }
+    </style>
+</head>
+<body>
+    <form id="formulario">
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+        <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        const form = document.getElementById("formulario")
+        const nombre = document.getElementById("nombre")
+        const apellidos = document.getElementById("apellidos")
+
+        /* Evento submit */
+        form.addEventListener("submit", (e) => {
+        
+            /* Evitar recarga */
+            e.preventDefault()
+            console.log(apellidos);
+            
+
+            if (apellidos.value.length > nombre.value.length) {
+                console.log("Todo OK");
+                
+            } else {
+                apellidos.classList.add("error")
+            }
+
+        })
+
+    </script>
+    
+</body>
+</html>
