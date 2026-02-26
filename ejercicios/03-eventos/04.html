@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, asdfasdfasdfsinitial-scale=1.0">
+    <title>04</title>
+    <style>
+        body {
+            background-color: lightgray;
+        }
+        .app {
+            background-color: white;
+            padding: 20px;
+            max-width: 400px;
+            border-radius: 10px;
+        }
+        input {
+            padding: 10px;
+        }
+        button {
+            padding: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            border: 1px solid black;
+            border-radius: 8px;
+            margin-top: 5px;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li.completada {
+            text-decoration: line-through;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <h2>Lista de tareas</h2>
+        <form action="" id="formulario">
+            <input type="text" id="tarea" placeholder="Escribe una tarea...">
+            <button type="submit">Añadir</button>
+        </form>
+        <ul id="lista"></ul>
+        <button id="limpiar">Eliminar completadas</button>
+    </div>
+   
+    <script>
+        const form = document.getElementById("formulario")
+        const input = document.getElementById("tarea")
+        const lista = document.getElementById("lista")
+        const btnLimpiar = document.getElementById("limpiar")
+
+        form.addEventListener("submit", (e) => {
+            /* Evitar recarga */
+            e.preventDefault()
+
+            /* Recuperar el texto del input */
+            const texto = input.value
+
+            /* Evitar tareas vacias */
+            if (texto === "") return
+
+            /* Crear el elemento "tarea" */
+            const tarea = document.createElement("li")
+            
+            /* Crear el texto de la tarea */
+            const spanTexto = document.createElement("span")
+            spanTexto.textContent = texto
+
+            const spanHora = document.createElement("span")
+            const ahora = new Date()
+            const horas = ahora.getHours().toString().padStart(2, "0")
+            const minutos = ahora.getMinutes().toString().padStart(2, "0")
+            spanHora.textContent = `${horas}:${minutos}`
+
+            tarea.appendChild(spanTexto)
+            tarea.appendChild(spanHora)
+
+
+            /* Añadir la tarea al DOM */
+            lista.appendChild(tarea)
+
+            /* Refrescar texto del input */
+            input.value = ""
+
+            /* Click para marcar completada */
+            tarea.addEventListener("click", () => {
+                tarea.classList.toggle("completada")
+            })
+
+            /* Dobleclick para eliminar */
+            tarea.addEventListener("dblclick", () => {
+                tarea.remove()
+            })
+        })
+
+        btnLimpiar.addEventListener("click", () => {
+            const tareasCompletadas = document.querySelectorAll("li.completada")
+            tareasCompletadas.forEach( tarea => tarea.remove())
+        })
+
+        /* Mejorar codigo: usar un unico listener en para marcar y eliminar, en vez de uno por tarea */
+        
+    </script>
+</body>
+</html>
